@@ -89,10 +89,10 @@ namespace FSO.Client.UI.Panels
             Gender = avatar.GetPersonData(SimAntics.Model.VMPersonDataVariable.Gender) > 0;
             TTSContext?.Speak(Message.Replace('_', ' '), Gender, ((VMTSOAvatarState)avatar.TSOState).ChatTTSPitch);
 
-            if (((VMTSOAvatarState)avatar.TSOState).Permissions == VMTSOAvatarPermissions.Admin)
-                BgColor = Color.Red; // admin red color
+            if (((VMTSOAvatarState)avatar.TSOState).Permissions == VMTSOAvatarPermissions.Admin)            
+                BgColor = new Color(180,0,0); // admin red color            
             else
-                BgColor = new Color(8, 8, 128); // default color
+                BgColor = new Color(8, 8, 128); // default blue color            
             Offscreen = false;
             if (Message == "") Name = "";
             TextChanged();
@@ -249,10 +249,10 @@ namespace FSO.Client.UI.Panels
             //if the pointer is on this edge, it needs to be split into 3... Before point, point and after point. 
 
             var vertH = DisplayRect.Height - 40;
-            var vertPt = Math.Max(DisplayRect.Top + 20, Math.Min(DisplayRect.Bottom - 60, TargetPt.Y-20)) - (DisplayRect.Top + 20);
+            var vertPt = (int)Math.Max(DisplayRect.Top + 20, Math.Min(DisplayRect.Bottom - 60, TargetPt.Y-20)) - (DisplayRect.Top + 20);
 
             var horizW = DisplayRect.Width - 40;
-            var horizPt = Math.Max(DisplayRect.Left + 20, Math.Min(DisplayRect.Right - 60, TargetPt.X-20)) - (DisplayRect.Left + 20);
+            var horizPt = (int)Math.Max(DisplayRect.Left + 20, Math.Min(DisplayRect.Right - 60, TargetPt.X-20)) - (DisplayRect.Left + 20);
 
             int ptSel = 0;
 
